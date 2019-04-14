@@ -1,8 +1,8 @@
 name: flutter_jd
-description: A new Flutter plugin.
+description: flutter_jd是京东联盟电商SDK在Flutter上的实现，通过flutter_jd可以实现京东登录，打开京东商品详情等功能。
 version: 0.0.1
-author:
-homepage:
+author: haopintui <haopintui@qq.com>
+homepage: https://github.com/haopintui/flutter_jd
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
