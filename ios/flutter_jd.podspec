@@ -16,6 +16,10 @@ A new Flutter plugin.
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
 
+  s.vendored_frameworks ="Frameworks/*.framework"
+  s.resource = "Resources/*.bundle"
+  s.frameworks = "JDSDK"
+
   s.ios.deployment_target = '8.0'
 end
 

@@ -32,3 +32,9 @@ android {
         disable 'InvalidPackage'
     }
 }
+
+dependencies {
+    //    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile files('libs/jd_crash_lib_release_210.jar')
+    compile files('libs/JDSDK_h.jar')
+}

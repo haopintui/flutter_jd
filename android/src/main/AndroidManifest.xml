@@ -1,3 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.youdanhui.flutter_jd">
+
+    <application android:allowBackup="true">
+        <!-- 直接回呼 -->
+        <activity android:exported="true" android:name="com.kepler.jd.sdk.KeplerBackActivity" android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/> 
+                <data android:scheme="sdkback1e3e7046b1de4454971eceb01eea07a3"/>
+            </intent-filter>
+        </activity>
+    </application>
+
 </manifest>
