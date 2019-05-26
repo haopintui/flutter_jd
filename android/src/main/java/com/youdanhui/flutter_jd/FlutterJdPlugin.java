@@ -2,7 +2,9 @@ package com.youdanhui.flutter_jd;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 
+import com.kepler.jd.Listener.AsyncInitListener;
 import com.kepler.jd.Listener.OpenAppAction;
 import com.kepler.jd.login.KeplerApiManager;
 import com.kepler.jd.sdk.bean.KeplerAttachParameter;
@@ -44,12 +46,33 @@ public class FlutterJdPlugin implements MethodCallHandler {
     if (call.method.equals("getPlatformVersion")) {
       result.success("Android " + android.os.Build.VERSION.RELEASE);
     }
+    else if(call.method.equals("initTradeAsync")){
+      initTradeAsync(call,result);
+    }
     else if(call.method.equals("openApp")){
       openApp(call,result);
     }
     else {
       result.notImplemented();
     }
+  }
+
+  public void initTradeAsync(MethodCall call, final Result result){
+    String appkey = call.argument("appkey");
+    String secretkey = call.argument("secretkey");
+    KeplerApiManager.asyncInitSdk(registrar.activity().getApplication(), appkey, secretkey,
+      new AsyncInitListener() {
+        @Override
+        public void onSuccess() {
+          Log.e("Kepler", "Kepler asyncInitSdk onSuccess ");
+        }
+
+        @Override
+        public void onFailure() {
+          Log.e("Kepler",
+                  "Kepler asyncInitSdk 授权失败，请检查 lib 工程资源引用；包名,签名证书是否和注册一致");
+        }
+      });
   }
 
   public void openApp(MethodCall call, final Result result){
